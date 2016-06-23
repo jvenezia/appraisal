@@ -43,8 +43,12 @@ module Appraisal
     def ensure_bundler_is_available
       unless system %(gem list -q "^bundler$" | grep -q bundler)
         puts ">> Reinstall Bundler into #{ENV["GEM_HOME"]}"
+        version = Gem::Specification.
+          detect { |spec| spec.name == "bundler" }.
+          version.
+          to_s
 
-        unless system "gem install bundler"
+        unless system "gem install bundler -v #{version}"
           puts
           puts <<-ERROR.strip.gsub(/\s+/, " ")
             Bundler installation failed. Please try running
