@@ -130,8 +130,12 @@ module AcceptanceTestHelpers
         Reinstall Bundler to #{TMP_GEM_ROOT} as `BUNDLE_DISABLE_SHARED_GEMS`
         is enabled.
       WARNING
+      version = Gem::Specification.
+        detect { |spec| spec.name == "bundler" }.
+        version.
+        to_s
 
-      run "gem install bundler --install-dir '#{TMP_GEM_ROOT}'"
+      run "gem install bundler -v #{version} --install-dir '#{TMP_GEM_ROOT}'"
     end
   end
 
