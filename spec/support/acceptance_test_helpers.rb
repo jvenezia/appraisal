@@ -135,7 +135,7 @@ module AcceptanceTestHelpers
         version.
         to_s
 
-      run "gem install bundler -v #{version} --install-dir '#{TMP_GEM_ROOT}'"
+      run "gem install bundler --version #{version} --install-dir '#{TMP_GEM_ROOT}'"
     end
   end
 

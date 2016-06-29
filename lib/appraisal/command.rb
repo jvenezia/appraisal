@@ -48,7 +48,7 @@ module Appraisal
           version.
           to_s
 
-        unless system "gem install bundler -v #{version}"
+        unless system "gem install bundler --version #{version}"
           puts
           puts <<-ERROR.strip.gsub(/\s+/, " ")
             Bundler installation failed. Please try running
