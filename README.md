@@ -85,6 +85,8 @@ versions to check for regressions.
 In the case that you want to run all the appraisals by default when you run
 `rake`, you can override your default Rake task by put this into your Rakefile:
 
+    require 'appraisal'
+
     if !ENV["APPRAISAL_INITIALIZED"] && !ENV["TRAVIS"]
       task :default => :appraisal
     end
